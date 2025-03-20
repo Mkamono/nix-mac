@@ -37,6 +37,7 @@
           nixfmt-rfc-style
         ];
       };
+      formatter.${system} = pkgs.nixfmt-rfc-style;
       homeConfigurations = {
         homeConfig = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {

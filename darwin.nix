@@ -14,6 +14,7 @@
   # システムの設定（nix-darwinが効いているかのテスト）
   system = {
     defaults = {
+      stateVersion = 6;
       NSGlobalDomain.AppleShowAllExtensions = true;
       finder = {
         AppleShowAllFiles = true;
