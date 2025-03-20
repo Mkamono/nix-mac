@@ -3,10 +3,10 @@
   lib,
   config,
   pkgs,
-}: {
-# }: let
-#   username = "kawarimidoll";
-# in {
+  ...
+}: let
+  username = "kawarimidoll";
+in {
   nixpkgs = {
     config = {
       allowUnfree = true;

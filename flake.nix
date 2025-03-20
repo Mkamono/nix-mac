@@ -11,10 +11,11 @@
 
   outputs = { self, nixpkgs, home-manager} @inputs: let 
     system = "aarch64-darwin";
+    pkgs = nixpkgs.legacyPackages.${system};
   in {
-    packages.${system}.default = nixpkgs.legacyPackages.${system}.buildEnv {
+    packages.${system}.default = pkgs.buildEnv {
       name = "default";
-      paths = with nixpkgs.legacyPackages.${system}; [
+      paths = with pkgs; [
         git
         curl
         go
@@ -24,7 +25,7 @@
       ];
     };
     homeConfigurations = {
-      myHomeConfig = home-manager.lib.homeManagerConfiguration {
+      homeConfig = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = system;
         };
