@@ -4,8 +4,8 @@
   config,
   pkgs,
   ...
-}: let
-  username = "kawarimidoll";
+}: let 
+  username = builtins.getEnv "USER";
 in {
   nixpkgs = {
     config = {
@@ -14,8 +14,8 @@ in {
   };
 
   home = {
-    # username = username;
-    # homeDirectory = "/Users/${username}";
+    username = username;
+    homeDirectory = "/Users/${username}";
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
