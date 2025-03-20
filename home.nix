@@ -4,9 +4,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   username = builtins.getEnv "USER";
-in {
+in
+{
   nixpkgs = {
     config = {
       allowUnfree = true;
